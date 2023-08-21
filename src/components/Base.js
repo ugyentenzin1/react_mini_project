@@ -41,7 +41,7 @@ const buttonVariants = {
 }
 
 const Base = ({ addBase, pizza }) => {
-    const bases = ['Classic', 'Thin & Crispy', 'Thick Crust'];
+    const bases = ['Potato Curry', 'Ema Datsi', 'Shakam PA', 'Pork Curry', 'Beef Pa', 'Chicken Curry'];
 
     return (
         <motion.div className="base container"
@@ -50,7 +50,7 @@ const Base = ({ addBase, pizza }) => {
                     animate="visible"
                     exit="exit"
         >
-            <h3>Step 1: Choose Your Base</h3>
+            <h3>Step 1: Choose Your </h3>
             <ul>
                 {bases.map(base => {
                     let spanClass = pizza.base === base ? 'active' : '';
@@ -59,7 +59,7 @@ const Base = ({ addBase, pizza }) => {
                                    whileHover={{ scale: 1.3, originX: 0, color: '#f8e112' }}
                                    transition={{ type: 'spring', stiffness: 300 }}
                         >
-                            <span className={spanClass}>{ base }</span>
+                            <span className={spanClass}>{ base.toUpperCase() }</span>
                         </motion.li>
                     )
                 })}

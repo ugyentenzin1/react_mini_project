@@ -36,7 +36,6 @@ function CupCount({numberCup}) {
 }
 
 const Home = () => {
-    const listItem = ['man city', 'man utd', 'arsenal', 'liverpool'];
 
     const [showMore, setShowMore] = useState(false)
 
@@ -102,31 +101,31 @@ const Home = () => {
                     animate="visible"
                     exit="exit"
         >
-            <h2>Welcome to Pizza Joint</h2>
+            <h2>Welcome to BHUTANESE DISH MAKER</h2>
             <Link to="/base">
                 <motion.button
                     variants={buttonVariants}
                     whileHover="hover"
                 >
-                    Create Your Pizza
+                    Create Your Own Dish
                 </motion.button>
             </Link>
             <Loader />
             {/* eslint-disable-next-line no-useless-concat */}
            {/*<div>{listItem.map(value => <li>{value}</li>)}</div>*/}
 
-            <p>{listChemist.map(value => <div key={value.id} style={{marginTop: '20px'}}>{value.name}</div>)}</p>
+            {/*<p>{listChemist.map(value => <div key={value.id} style={{marginTop: '20px'}}>{value.name}</div>)}</p>*/}
 
-            <article style={{marginTop: '20px'}}>
-                {poem.lines.map((line, index) =>
-                    <div key={index}>
-                        { index > 0 && <hr/>}
-                        <p>{line}</p>
-                    </div>
-                )}
-            </article>
-            <button onClick={handleShowMore}>{showMore ? "hide": "show"} Details </button>
-            {showMore && <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet assumenda beatae est expedita labore laborum libero nemo optio qui.</p>}
+            {/*<article style={{marginTop: '20px'}}>*/}
+            {/*    {poem.lines.map((line, index) =>*/}
+            {/*        <div key={index}>*/}
+            {/*            { index > 0 && <hr/>}*/}
+            {/*            <p>{line}</p>*/}
+            {/*        </div>*/}
+            {/*    )}*/}
+            {/*</article>*/}
+            {/*<button onClick={handleShowMore}>{showMore ? "hide": "show"} Details </button>*/}
+            {/*{showMore && <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet assumenda beatae est expedita labore laborum libero nemo optio qui.</p>}*/}
         </motion.div>
     )
 }

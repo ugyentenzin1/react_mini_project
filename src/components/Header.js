@@ -57,7 +57,7 @@ const Header = ({isPacked}) => {
                                 animate={{ y: -10 }}
                                 transition={{ delay: 0.2, type: 'spring', stiffness: 120 }}
                     >
-                        <h1>ZHANGS PIZZA HUT</h1>
+                        <h1>ZHANGS BHUTANESE CURRY</h1>
                         <h2 hidden={isPacked}>sonam</h2>
                     </motion.div>
                 </div>
