@@ -39,18 +39,6 @@ const Home = () => {
 
     const [showMore, setShowMore] = useState(false)
 
-    const poem = {
-        lines: [
-            'I write, erase, rewrite',
-            'Erase again, and then',
-            'A poppy blooms.'
-        ]
-    };
-
-     function handleShowMore() {
-        setShowMore(!showMore)
-    }
-
     let cups =[];
 
     for (let i = 0; i<=10; i++) {
@@ -92,7 +80,55 @@ const Home = () => {
         profession: 'astrophysicist',
     }];
 
-    const listChemist = people.filter(chemist => chemist.profession = 'chemist');
+    const [name, setName] = useState({
+        name: 'Sonam Dorji',
+        address: 'Chorten',
+        contact: 17443788,
+        occupation: 'Engineer',
+        message: 'It gives very nice service'
+    });
+
+    function handleName(e) {
+        setName({
+            ...name,
+            name: e.target.value,
+        })
+    }
+
+    function handleAddress(e) {
+        setName({
+            ...name,
+            address: e.target.value,
+        })
+    }
+
+    function handleContact(e) {
+        setName({
+            ...name,
+            contact: e.target.value,
+        })
+    }
+
+    function handleOccupation(e) {
+        setName({
+            ...name,
+            occupation: e.target.value
+        })
+    }
+
+    function handleMessage(e) {
+        setName({
+            ...name, message: e.target.value
+        })
+    }
+    function handleSubmit(event) {
+       event.preventDefault();
+       setTimeout(()=> {
+           alert(`This is ${name.name} in living ${name.address} working as ${name.occupation}, ${name.contact}`)
+       }, 1000)
+
+    }
+
 
     return (
         <motion.div className="home container"
@@ -126,6 +162,16 @@ const Home = () => {
             {/*</article>*/}
             {/*<button onClick={handleShowMore}>{showMore ? "hide": "show"} Details </button>*/}
             {/*{showMore && <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet assumenda beatae est expedita labore laborum libero nemo optio qui.</p>}*/}
+            <form onSubmit={handleSubmit} style={{display: 'flex', flexDirection:'column', alignItems: "end", marginTop: '16px', gap: '16px'}}>
+
+                <h3>Feed Back</h3>
+                <span> Name:  <input type="name" value={name.name} onChange={handleName}/></span>
+                <span> Address: <input value={name.address} onChange={handleAddress}/></span>
+                <span> Contact Number:  <input type="text" value={name.contact} onChange={handleContact}/></span>
+                <span> Occupation:  <input type="text" value={name.occupation} onChange={handleOccupation}/></span>
+                <span> Message : <textarea rows="4" value={name.message} onChange={handleMessage}/></span>
+                <button type="submit" style={{width: '200px', padding: '8px 0'}}>Submit</button>
+            </form>
         </motion.div>
     )
 }

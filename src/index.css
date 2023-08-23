@@ -143,3 +143,12 @@ li span.active::before{
   border-radius: 50%;
   background: #fff;
 }
+
+input, textarea {
+  width: 300px;
+  background: transparent;
+  border-radius: 8px;
+  padding: 12px 24px;
+  border: 1px solid white;
+  color: white;
+}
