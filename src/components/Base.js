@@ -52,16 +52,27 @@ const Base = ({ addBase, pizza }) => {
 
     const [list, getList] = useState(initialState);
 
-    function handleValue(e: number, nextSeen) {
-        console.log(e)
-        getList(list.map(val => {
-            if(val.id === e) {
-                return { ...val, seen : nextSeen}
-            } else {
-                return e;
-            }
-        }))
+    function handleName(e) {
+        getList(val => val.map(
+            value => value.name = e
+        ))
     }
+
+    const dataFilter = list.filter(value => {
+        return value.id === 1;
+    });
+
+    function handleValueName(e) {
+
+        const updatedList = list.map(item => {
+            if (item.id === 1) {
+                return { ...item, name: e.target.value };
+            }
+            return item;
+        });
+        getList(updatedList)
+    }
+
     return (
         <motion.div className="base container"
                     variants={containerVariants}
@@ -74,15 +85,24 @@ const Base = ({ addBase, pizza }) => {
                 {bases.map(base => {
                     let spanClass = pizza.base === base ? 'active' : '';
                     return (
+                        <>
                         <motion.li key={base} onClick={() => addBase(base)}
                                    whileHover={{ scale: 1.3, originX: 0, color: '#f8e112' }}
                                    transition={{ type: 'spring', stiffness: 300 }}
                         >
                             <span className={spanClass}>{ base.toUpperCase() }</span>
                         </motion.li>
+                        </>
+
                     )
                 })}
             </ul>
+
+            <p style={{marginTop: "16px"}}>{dataFilter.map(value => value.name)}</p>
+
+            <h3>Own Choice</h3>
+
+            <input placeholder="name" value={dataFilter.map(value => value.name)} onChange={handleValueName}/>
 
             {pizza.base && (
                 <motion.div className="next"
@@ -92,8 +112,7 @@ const Base = ({ addBase, pizza }) => {
                         <motion.button
                             variants={buttonVariants}
                             whileHover="hover"
-                        >
-                            Next
+                        >Next
                         </motion.button>
                     </Link>
                 </motion.div>
