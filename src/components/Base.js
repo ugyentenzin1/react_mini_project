@@ -52,12 +52,6 @@ const Base = ({ addBase, pizza }) => {
 
     const [list, getList] = useState(initialState);
 
-    function handleName(e) {
-        getList(val => val.map(
-            value => value.name = e
-        ))
-    }
-
     const dataFilter = list.filter(value => {
         return value.id === 1;
     });
