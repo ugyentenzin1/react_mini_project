@@ -98,7 +98,7 @@ const Base = ({ addBase, pizza }) => {
                 })}
             </ul>
 
-            <p style={{marginTop: "16px"}}>{dataFilter.map(value => value.name)}</p>
+            <p style={{marginTop: "16px", marginBottom: "16px"}}>{dataFilter.map(value => value.name)}</p>
 
             <h3>Own Choice</h3>
 
