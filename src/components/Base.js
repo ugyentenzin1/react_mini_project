@@ -91,13 +91,9 @@ const Base = ({ addBase, pizza }) => {
                     )
                 })}
             </ul>
-
-            <p style={{marginTop: "16px", marginBottom: "16px"}}>{dataFilter.map(value => value.name)}</p>
-
+            <p style={{marginTop: "12px", marginBottom: "16px", marginLeft: "10px"}}>{dataFilter.map(value => value.name.toUpperCase())}</p>
             <h3>Own Choice</h3>
-
             <input placeholder="name" value={dataFilter.map(value => value.name)} onChange={handleValueName}/>
-
             {pizza.base && (
                 <motion.div className="next"
                             variants={nextVariants}
