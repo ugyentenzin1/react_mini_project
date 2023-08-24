@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import base from "base";
 
 const containerVariants = {
     hidden: {
@@ -67,6 +68,9 @@ const Base = ({ addBase, pizza }) => {
         getList(updatedList)
     }
 
+    let spanClass = pizza.base === base ? 'active' : '';
+
+
     return (
         <motion.div className="base container"
                     variants={containerVariants}
@@ -91,7 +95,8 @@ const Base = ({ addBase, pizza }) => {
                     )
                 })}
             </ul>
-            <p style={{marginTop: "12px", marginBottom: "16px", marginLeft: "10px"}}>{dataFilter.map(value => value.name.toUpperCase())}</p>
+            <motion.p className={spanClass}  whileHover={{ scale: 1.3, originX: 0, color: '#f8e112', cursor: "pointer" }}
+                transition={{ type: 'spring', stiffness: 300 }} style={{marginTop: "12px", marginBottom: "16px", marginLeft: "10px"}}>{dataFilter.map(value => value.name.toUpperCase())}</motion.p>
             <h3>Own Choice</h3>
             <input placeholder="name" value={dataFilter.map(value => value.name)} onChange={handleValueName}/>
             {pizza.base && (
