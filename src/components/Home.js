@@ -104,15 +104,14 @@ const Home = () => {
 
     function handleContact(e) {
         setName({
-            ...name,
+            ...name,//destructuring
             contact: e.target.value,
         })
     }
 
     function handleOccupation(e) {
-        setName({
-            ...name,
-            occupation: e.target.value
+        setName(occupation => {
+            occupation.occupation = e.target.value;
         })
     }
 
@@ -128,7 +127,6 @@ const Home = () => {
        }, 1000)
 
     }
-
 
     return (
         <motion.div className="home container"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -43,6 +43,25 @@ const buttonVariants = {
 const Base = ({ addBase, pizza }) => {
     const bases = ['Potato Curry', 'Ema Datsi', 'Shakam PA', 'Pork Curry', 'Beef Pa', 'Chicken Curry'];
 
+    const initialState = [
+        {id: 1, name: 'Ugyen', age: 24, seen: true},
+        {id: 2, name: 'Tenzin', age: 22, seen: false},
+        {id: 3, name: 'Dhew Lala ', age: 21, seen: false},
+        {id: 4, name: 'Humty dumty', age: 26, seen: true}
+    ];
+
+    const [list, getList] = useState(initialState);
+
+    function handleValue(e: number, nextSeen) {
+        console.log(e)
+        getList(list.map(val => {
+            if(val.id === e) {
+                return { ...val, seen : nextSeen}
+            } else {
+                return e;
+            }
+        }))
+    }
     return (
         <motion.div className="base container"
                     variants={containerVariants}
